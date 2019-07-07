@@ -43,3 +43,4 @@ function tabulate(data, columns) {
 
     return table;
 }
+
