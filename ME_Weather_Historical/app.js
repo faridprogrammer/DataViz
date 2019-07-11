@@ -4,9 +4,9 @@
 
     d3.csv("data.csv").then(function (result) {
 
-        var columns = ['Temperature', 'Year', 'Month', 'Country', 'ISO3']
-        data = result;
-        tabulate(data, columns);
+        // var columns = ['Temperature', 'Year', 'Month', 'Country', 'ISO3']
+        // data = result;
+        // tabulate(data, columns);
 
 
     });
