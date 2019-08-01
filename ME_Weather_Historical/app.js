@@ -3,17 +3,118 @@
     var data = null;
 
     d3.csv("data.csv").then(function (result) {
-
-        // var columns = ['Temperature', 'Year', 'Month', 'Country', 'ISO3']
-        // data = result;
-        // tabulate(data, columns);
-
-
+        data = result;
     });
 
 
+    var monthsNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    window.getColors = function(year, month) {
+        debugger;
+        var monthName = monthsNames[month - 1];
+        var foundItems = data.filter((item) => item.Year == year && item.Month.trim() == monthName);
+        var mapped = foundItems.map(function (obj, index) {
+            return {
+                Country: obj.Country,
+                Year: obj.Year,
+                Month: obj.Month,
+                Temp: obj.Temperature,
+                HexColor: toColor(obj.Temperature)
+            };
+        });
+        return mapped;
+    }
+    
+    function toColor(num) {
+    
+        if (num <= 1 && num > 0) {
+            return '#D6EAF8';
+        }
+        if (num <= 3 && num > 1) {
+            return '#D6EAF8';
+        }
+        if (num <= 6 && num > 3) {
+            return '#D6EAF8';
+        }
+        if (num <= 9 && num > 6) {
+            return '#D6EAF8';
+        }
+        if (num <= 12 && num > 9) {
+            return '#229954';
+        }
+        if (num <= 15 && num > 12) {
+            return '#28B463';
+    
+        }
+        if (num <= 19 && num > 15) {
+            return '#2ECC71';
+    
+        }
+        if (num <= 22 && num > 19) {
+            return '#58D68D';
+    
+        }
+        if (num <= 25 && num > 22) {
+            return '#A9DFBF';
+    
+        }
+        if (num <= 29 && num > 25) {
+            return '#FCF3CF';
+    
+        }
+        if (num <= 32 && num > 29) {
+            return '#F7DC6F';
+    
+        }
+        if (num <= 39 && num > 32) {
+            return '#EDBB99';
+    
+        }
+        if (num <= 41 && num > 39) {
+            return '#E59866';
+    
+        }
+        if (num <= 45 && num > 41) {
+            return '#DC7633';
+    
+        }
+        if (num > 45) {
+            return '#E74C3C';
+    
+        }
+    
+    
+    
+    
+    
+        if (num <= 0 && num > -1) {
+            return '#D6EAF8';
+        }
+        if (num <= -1 && num > -3) {
+            return '#AED6F1';
+        }
+    
+        if (num <= 3 && num > -6) {
+            return '#85C1E9';
+        }
+        if (num <= 6 && num > -9) {
+            return '#5DADE2';
+        }
+        if (num <= 9 && num > -11) {
+            return '#2E86C1';
+        }
+        if (num <= -11) {
+            return '#21618C';
+    
+        }
+    
+    
+    
+    }
+    
 
 })();
+
 
 (function () {
 
@@ -35,7 +136,7 @@
         .center([0, 15]) // set centre to further North as we are cropping more off bottom of map
         .scale([w / (2 * Math.PI)]) // scale to fit group width
         .translate([w / 2, h / 2]) // ensure centred in group
-    ;
+        ;
 
     // Define map path
     var path = d3
