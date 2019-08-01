@@ -1,0 +1,25 @@
+{
+  "name": "dataviz",
+  "version": "1.0.0",
+  "description": "Oh my god",
+  "main": "index.js",
+  "dependencies": {
+    "d3": "^5.9.7",
+    "jquery": "^3.4.1",
+    "serve": "^11.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faridprogrammer/DataViz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faridprogrammer/DataViz/issues"
+  },
+  "homepage": "https://github.com/faridprogrammer/DataViz#readme"
+}
