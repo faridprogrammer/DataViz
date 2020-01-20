@@ -133,9 +133,9 @@
     // Define map projection
     var projection = d3
         .geoEquirectangular()
-        .center([0, 15]) // set centre to further North as we are cropping more off bottom of map
-        .scale([w / (2 * Math.PI)]) // scale to fit group width
-        .translate([w / 2, h / 2]) // ensure centred in group
+        .center([15, 35]) // set centre to further North as we are cropping more off bottom of map
+        .scale([w / (1 * Math.PI - 1)]) // scale to fit group width
+        .translate([w / 5, h / 2]) // ensure centred in group
         ;
 
     // Define map path
@@ -245,7 +245,7 @@
         .attr("width", $("#map-holder").width())
         .attr("height", $("#map-holder").height())
         // add zoom functionality
-        .call(zoom);
+        // .call(zoom);
 
     debugger;
     // get map data
@@ -285,11 +285,11 @@
                     d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
                 })
                 // add an onclick action to zoom into clicked country
-                .on("click", function (d, i) {
-                    d3.selectAll(".country").classed("country-on", false);
-                    d3.select(this).classed("country-on", true);
-                    boxZoom(path.bounds(d), path.centroid(d), 20);
-                });
+                // .on("click", function (d, i) {
+                //     d3.selectAll(".country").classed("country-on", false);
+                //     d3.select(this).classed("country-on", true);
+                //     boxZoom(path.bounds(d), path.centroid(d), 20);
+                // });
             // Add a label group to each feature/country. This will contain the country name and a background rectangle
             // Use CSS to have class "countryLabel" initially hidden
             countryLabels = countriesGroup
@@ -312,13 +312,13 @@
                 })
                 .on("mouseout", function (d, i) {
                     d3.select(this).style("display", "none");
-                })
-                // add an onlcick action to zoom into clicked country
-                .on("click", function (d, i) {
-                    d3.selectAll(".country").classed("country-on", false);
-                    d3.select("#country" + d.properties.iso_a3).classed("country-on", true);
-                    boxZoom(path.bounds(d), path.centroid(d), 20);
                 });
+                // add an onlcick action to zoom into clicked country
+                // .on("click", function (d, i) {
+                //     d3.selectAll(".country").classed("country-on", false);
+                //     d3.select("#country" + d.properties.iso_a3).classed("country-on", true);
+                //     boxZoom(path.bounds(d), path.centroid(d), 20);
+                // });
             // add the text to the label group showing country name
             countryLabels
                 .append("text")
