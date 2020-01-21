@@ -133,9 +133,9 @@
     // Define map projection
     var projection = d3
         .geoEquirectangular()
-        .center([15, 35]) // set centre to further North as we are cropping more off bottom of map
-        .scale([w / (1 * Math.PI - 1)]) // scale to fit group width
-        .translate([w / 5, h / 2]) // ensure centred in group
+        .center([15, 25]) // set centre to further North as we are cropping more off bottom of map
+        .scale([w / (2)]) // scale to fit group width
+        .translate([w / 4.8, h / 2]) // ensure centred in group
         ;
 
     // Define map path
@@ -247,7 +247,6 @@
         // add zoom functionality
         // .call(zoom);
 
-    debugger;
     // get map data
     d3.json(
         "custom-map.json"
